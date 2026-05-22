@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stats</title>
+</head>
+<body>
+    <h1>Books statistics</h1>
+
+    <table border="1">
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Reviews</th>
+        <th>Avg rating</th>
+      </tr>
+
+      {% for book in books %}
+      <tr>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author.name }}</td>
+        <td>{{ book.reviews_count }}</td>
+        <td>{{ book.avg_rating|default:"0"|floatformat:2 }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+</body>
+</html>

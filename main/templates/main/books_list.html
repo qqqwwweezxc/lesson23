@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Books list</title>
+</head>
+<body>
+    <h1>Books</h1>
+
+    <ul>
+      {% for book in books %}
+        <li>
+          <strong>{{ book.title }}</strong><br>
+
+          Author:
+          {{ book.author.name }}
+
+          <br>
+
+          Reviews:
+          <ul>
+            {% for review in book.reviews.all %}
+              <li>{{ review.review }}</li>
+            {% empty %}
+              <li>No reviews</li>
+            {% endfor %}
+          </ul>
+
+        </li>
+      {% endfor %}
+    </ul>
+</body>
+</html>
